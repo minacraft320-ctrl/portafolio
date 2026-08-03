@@ -233,4 +233,168 @@
       color: #94a3b8;
       margin-bottom: 30px;
       max-width: 500px;
-      margin-left
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .contact-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-whatsapp {
+      background: #25D366;
+      color: white;
+    }
+
+    .btn-whatsapp:hover {
+      background: #1da851;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #64748b;
+      font-size: 0.95rem;
+      border-top: 1px solid #1e293b;
+    }
+
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 2.3rem;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .btn-outline {
+        margin-left: 0;
+        margin-top: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="logo">Minacraft</a>
+      <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="inicio">
+    <div class="hero-content">
+      <h1>Hola, soy <span>Minacraft</span></h1>
+      <p>Creo páginas web modernas, limpias y funcionales. También diseño e imprimo juguetes en 3D.</p>
+      <div>
+        <a href="#proyectos" class="btn">Ver mis proyectos</a>
+        <a href="#contacto" class="btn btn-outline">Contactar</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sobre mí -->
+  <section id="sobre-mi">
+    <h2>Sobre mí</h2>
+    <p class="section-subtitle">Un poco de quién soy y lo que hago</p>
+
+    <div class="about-grid">
+      <div style="background: #1e293b; height: 320px; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 5rem;">
+        👨‍💻🖨️
+      </div>
+      <div class="about-text">
+        <p>Me dedico a crear sitios web atractivos y fáciles de usar. También tengo un negocio de impresión 3D donde fabrico juguetes personalizados para niños.</p>
+        <p>Me gusta combinar diseño limpio con funcionalidad real, para que cada página cumpla su objetivo.</p>
+        
+        <div class="skills">
+          <span class="skill">HTML</span>
+          <span class="skill">CSS</span>
+          <span class="skill">JavaScript</span>
+          <span class="skill">GitHub Pages</span>
+          <span class="skill">Diseño Web</span>
+          <span class="skill">Impresión 3D</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Proyectos -->
+  <section id="proyectos">
+    <h2>Mis Proyectos</h2>
+    <p class="section-subtitle">Algunos de los sitios que he creado</p>
+
+    <div class="projects-grid">
+
+      <!-- Proyecto 1: PequePrint -->
+      <div class="project-card">
+        <div class="project-img">🦖</div>
+        <div class="project-info">
+          <h3>PequePrint</h3>
+          <p>Tienda de juguetes impresos en 3D para niños. Diseño moderno con catálogo de productos y contacto por WhatsApp.</p>
+          <div class="project-links">
+            <a href="https://minacraft320-ctrl.github.io" target="_blank">Ver sitio →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Proyecto 2 (placeholder) -->
+      <div class="project-card">
+        <div class="project-img">🚀</div>
+        <div class="project-info">
+          <h3>Próximo Proyecto</h3>
+          <p>Aquí aparecerá tu siguiente página web. Puedes cambiar este texto cuando la tengas lista.</p>
+          <div class="project-links">
+            <a href="#">Próximamente</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Proyecto 3 (placeholder) -->
+      <div class="project-card">
+        <div class="project-img">💡</div>
+        <div class="project-info">
+          <h3>Otro Proyecto</h3>
+          <p>Espacio reservado para futuros trabajos. Ideal para landings, portafolios de clientes o tiendas.</p>
+          <div class="project-links">
+            <a href="#">Próximamente</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <div class="contact" id="contacto">
+    <h2>¿Quieres una página web?</h2>
+    <p>Escríbeme y cuéntame tu idea. Puedo ayudarte a crear tu sitio de forma rápida y profesional.</p>
+    
+    <div class="contact-buttons">
+      <a href="https://wa.me/523322612190" class="btn btn-whatsapp" target="_blank">WhatsApp</a>
+      <a href="mailto:hola@email.com" class="btn btn-outline">Email</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 Minacraft — Portafolio</p>
+  </footer>
+
+</body>
+</html>
