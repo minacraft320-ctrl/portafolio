@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portafolio | Fabián</title>
+  <title>Fabián | Diseño y Desarrollo Web</title>
   <style>
     * {
       margin: 0;
@@ -11,11 +11,23 @@
       box-sizing: border-box;
     }
 
+    :root {
+      --bg: #0b1120;
+      --bg-card: #111827;
+      --border: #1f2937;
+      --text: #e5e7eb;
+      --text-muted: #9ca3af;
+      --primary: #38bdf8;
+      --primary-hover: #0ea5e9;
+      --accent: #22d3ee;
+    }
+
     body {
-      font-family: 'Segoe UI', system-ui, sans-serif;
-      background: #0f172a;
-      color: #e2e8f0;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
     a {
@@ -23,212 +35,294 @@
       color: inherit;
     }
 
+    /* Header */
     header {
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(15, 23, 42, 0.95);
-      backdrop-filter: blur(10px);
-      z-index: 100;
-      border-bottom: 1px solid #1e293b;
+      background: rgba(11, 17, 32, 0.9);
+      backdrop-filter: blur(12px);
+      z-index: 1000;
+      border-bottom: 1px solid var(--border);
     }
 
     .nav-container {
-      max-width: 1100px;
+      max-width: 1140px;
       margin: 0 auto;
-      padding: 18px 20px;
+      padding: 16px 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
     .logo {
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: #38bdf8;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: -0.5px;
+    }
+
+    nav {
+      display: flex;
+      gap: 32px;
     }
 
     nav a {
-      margin-left: 28px;
-      color: #94a3b8;
+      color: var(--text-muted);
       font-weight: 500;
+      font-size: 0.95rem;
       transition: color 0.2s;
     }
 
     nav a:hover {
-      color: #38bdf8;
+      color: var(--primary);
     }
 
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* Hero */
     .hero {
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 100px 20px 60px;
-      background: radial-gradient(circle at top, #1e293b 0%, #0f172a 70%);
+      padding: 120px 24px 80px;
+      background: radial-gradient(ellipse at top, #1e293b 0%, var(--bg) 65%);
     }
 
     .hero-content h1 {
-      font-size: 3.2rem;
+      font-size: clamp(2.4rem, 5vw, 3.4rem);
       font-weight: 800;
-      margin-bottom: 16px;
-      line-height: 1.2;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      letter-spacing: -1px;
     }
 
     .hero-content h1 span {
-      color: #38bdf8;
+      color: var(--primary);
     }
 
     .hero-content p {
-      font-size: 1.25rem;
-      color: #94a3b8;
-      max-width: 600px;
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      max-width: 540px;
       margin: 0 auto 40px;
     }
 
     .btn {
       display: inline-block;
-      background: #38bdf8;
+      background: var(--primary);
       color: #0f172a;
       padding: 14px 32px;
       border-radius: 50px;
-      font-weight: 700;
-      font-size: 1.05rem;
-      transition: all 0.3s;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.25s ease;
     }
 
     .btn:hover {
-      background: #0ea5e9;
+      background: var(--primary-hover);
       transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(56, 189, 248, 0.25);
     }
 
     .btn-outline {
       background: transparent;
-      border: 2px solid #38bdf8;
-      color: #38bdf8;
+      border: 1.5px solid var(--primary);
+      color: var(--primary);
       margin-left: 12px;
     }
 
     .btn-outline:hover {
-      background: #38bdf8;
+      background: var(--primary);
       color: #0f172a;
     }
 
+    /* Sections */
     section {
-      max-width: 1100px;
+      max-width: 1140px;
       margin: 0 auto;
-      padding: 90px 20px;
+      padding: 100px 24px;
     }
 
     h2 {
-      font-size: 2.2rem;
+      font-size: 2rem;
+      font-weight: 700;
       text-align: center;
       margin-bottom: 12px;
+      letter-spacing: -0.5px;
     }
 
     .section-subtitle {
       text-align: center;
-      color: #94a3b8;
-      margin-bottom: 50px;
+      color: var(--text-muted);
+      margin-bottom: 56px;
+      font-size: 1.05rem;
     }
 
+    /* About */
     .about-grid {
       display: grid;
-      grid-template-columns: 1fr 1.5fr;
-      gap: 50px;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 60px;
       align-items: center;
     }
 
+    .about-image {
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      height: 340px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-image::before {
+      content: "F";
+      font-size: 7rem;
+      font-weight: 800;
+      color: rgba(56, 189, 248, 0.15);
+      position: absolute;
+    }
+
+    .about-image-inner {
+      width: 140px;
+      height: 140px;
+      background: linear-gradient(135deg, var(--primary), #0ea5e9);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.2rem;
+      font-weight: 700;
+      color: #0f172a;
+      z-index: 1;
+    }
+
     .about-text p {
-      color: #94a3b8;
-      margin-bottom: 16px;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+      font-size: 1.05rem;
     }
 
     .skills {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-top: 24px;
+      margin-top: 28px;
     }
 
     .skill {
-      background: #1e293b;
-      color: #38bdf8;
-      padding: 8px 16px;
+      background: var(--bg-card);
+      color: var(--primary);
+      padding: 8px 18px;
       border-radius: 50px;
-      font-size: 0.9rem;
+      font-size: 0.875rem;
       font-weight: 500;
+      border: 1px solid var(--border);
     }
 
+    /* Projects */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
+      gap: 28px;
     }
 
     .project-card {
-      background: #1e293b;
-      border-radius: 16px;
+      background: var(--bg-card);
+      border-radius: 18px;
       overflow: hidden;
-      transition: transform 0.3s, box-shadow 0.3s;
-      border: 1px solid #334155;
+      border: 1px solid var(--border);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .project-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+      border-color: #334155;
     }
 
     .project-img {
       height: 180px;
-      background: #0f172a;
+      background: linear-gradient(135deg, #1e293b, #0f172a);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 3rem;
+      position: relative;
+    }
+
+    .project-img span {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      opacity: 0.7;
+      letter-spacing: 1px;
     }
 
     .project-info {
-      padding: 24px;
+      padding: 26px;
     }
 
     .project-info h3 {
-      margin-bottom: 8px;
-      color: #f1f5f9;
+      margin-bottom: 10px;
+      font-size: 1.25rem;
+      color: #f3f4f6;
     }
 
     .project-info p {
-      color: #94a3b8;
+      color: var(--text-muted);
       font-size: 0.95rem;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
+      line-height: 1.5;
     }
 
     .project-links a {
-      color: #38bdf8;
+      color: var(--primary);
       font-weight: 600;
-      margin-right: 16px;
       font-size: 0.95rem;
+      transition: color 0.2s;
     }
 
     .project-links a:hover {
-      text-decoration: underline;
+      color: var(--primary-hover);
     }
 
+    /* Contact */
     .contact {
       text-align: center;
-      background: #1e293b;
-      border-radius: 20px;
-      padding: 60px 30px;
-      margin: 40px 20px 80px;
+      background: var(--bg-card);
+      border-radius: 24px;
+      padding: 70px 40px;
+      margin: 20px 24px 100px;
+      border: 1px solid var(--border);
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .contact h2 {
+      margin-bottom: 16px;
     }
 
     .contact p {
-      color: #94a3b8;
-      margin-bottom: 30px;
-      max-width: 500px;
+      color: var(--text-muted);
+      margin-bottom: 36px;
+      max-width: 480px;
       margin-left: auto;
       margin-right: auto;
+      font-size: 1.05rem;
     }
 
     .contact-buttons {
@@ -245,32 +339,58 @@
 
     .btn-whatsapp:hover {
       background: #1da851;
+      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.25);
     }
 
+    /* Footer */
     footer {
       text-align: center;
-      padding: 30px;
+      padding: 32px 24px;
       color: #64748b;
-      font-size: 0.95rem;
-      border-top: 1px solid #1e293b;
+      font-size: 0.9rem;
+      border-top: 1px solid var(--border);
     }
 
+    /* Mobile */
     @media (max-width: 768px) {
-      .hero-content h1 {
-        font-size: 2.3rem;
+      nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(11, 17, 32, 0.98);
+        flex-direction: column;
+        padding: 20px 24px;
+        gap: 16px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
       }
 
       .about-grid {
         grid-template-columns: 1fr;
+        gap: 40px;
       }
 
-      nav {
-        display: none;
+      .about-image {
+        height: 260px;
       }
 
       .btn-outline {
         margin-left: 0;
         margin-top: 12px;
+      }
+
+      .contact {
+        padding: 50px 24px;
+        margin: 20px 16px 80px;
       }
     }
   </style>
@@ -280,6 +400,7 @@
   <header>
     <div class="nav-container">
       <a href="#" class="logo">Fabián</a>
+      <button class="menu-toggle" onclick="document.querySelector('nav').classList.toggle('active')">☰</button>
       <nav>
         <a href="#inicio">Inicio</a>
         <a href="#sobre-mi">Sobre mí</a>
@@ -291,33 +412,34 @@
 
   <section class="hero" id="inicio">
     <div class="hero-content">
-      <h1>Hola, soy <span>Fabián</span></h1>
-      <p>Creo páginas web modernas, limpias y funcionales. También diseño e imprimo juguetes en 3D.</p>
+      <h1>Diseño y desarrollo de<br><span>páginas web profesionales</span></h1>
+      <p>Creo sitios web modernos, rápidos y orientados a resultados. Ideal para negocios que quieren verse profesionales y atraer más clientes.</p>
       <div>
-        <a href="#proyectos" class="btn">Ver mis proyectos</a>
-        <a href="#contacto" class="btn btn-outline">Contactar</a>
+        <a href="#proyectos" class="btn">Ver proyectos</a>
+        <a href="#contacto" class="btn btn-outline">Solicitar cotización</a>
       </div>
     </div>
   </section>
 
   <section id="sobre-mi">
     <h2>Sobre mí</h2>
-    <p class="section-subtitle">Un poco de quién soy y lo que hago</p>
-
+    <p class="section-subtitle">Diseño + desarrollo orientado a resultados</p>
+    
     <div class="about-grid">
-      <div style="background: #1e293b; height: 320px; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 5rem;">
-        👨‍💻🖨️
+      <div class="about-image">
+        <div class="about-image-inner">F</div>
       </div>
+      
       <div class="about-text">
-        <p>Me dedico a crear sitios web atractivos y fáciles de usar. También tengo un negocio de impresión 3D donde fabrico juguetes personalizados para niños.</p>
-        <p>Me gusta combinar diseño limpio con funcionalidad real, para que cada página cumpla su objetivo.</p>
+        <p>Me especializo en crear páginas web limpias, modernas y fáciles de usar. Cada proyecto se enfoca en transmitir profesionalismo y cumplir un objetivo claro: atraer clientes, mostrar servicios o vender productos.</p>
+        <p>También desarrollo proyectos de impresión 3D, lo que me permite combinar diseño digital con productos físicos.</p>
         
         <div class="skills">
           <span class="skill">HTML</span>
           <span class="skill">CSS</span>
           <span class="skill">JavaScript</span>
-          <span class="skill">GitHub Pages</span>
           <span class="skill">Diseño Web</span>
+          <span class="skill">GitHub Pages</span>
           <span class="skill">Impresión 3D</span>
         </div>
       </div>
@@ -325,16 +447,17 @@
   </section>
 
   <section id="proyectos">
-    <h2>Mis Proyectos</h2>
-    <p class="section-subtitle">Algunos de los sitios que he creado</p>
-
+    <h2>Proyectos</h2>
+    <p class="section-subtitle">Algunos de los sitios que he desarrollado</p>
+    
     <div class="projects-grid">
-
       <div class="project-card">
-        <div class="project-img">🦖</div>
+        <div class="project-img">
+          <span>PEQUEPRINT</span>
+        </div>
         <div class="project-info">
           <h3>PequePrint</h3>
-          <p>Tienda de juguetes impresos en 3D para niños. Diseño moderno con catálogo de productos y contacto por WhatsApp.</p>
+          <p>Tienda de juguetes impresos en 3D. Diseño moderno con catálogo de productos y contacto directo por WhatsApp.</p>
           <div class="project-links">
             <a href="https://minacraft320-ctrl.github.io" target="_blank">Ver sitio →</a>
           </div>
@@ -342,10 +465,12 @@
       </div>
 
       <div class="project-card">
-        <div class="project-img">🚀</div>
+        <div class="project-img">
+          <span>PRÓXIMO</span>
+        </div>
         <div class="project-info">
-          <h3>Próximo Proyecto</h3>
-          <p>Aquí aparecerá tu siguiente página web. Puedes cambiar este texto cuando la tengas lista.</p>
+          <h3>Próximo proyecto</h3>
+          <p>Espacio reservado para tu siguiente página web. Ideal para landings, sitios corporativos o tiendas.</p>
           <div class="project-links">
             <a href="#">Próximamente</a>
           </div>
@@ -353,22 +478,23 @@
       </div>
 
       <div class="project-card">
-        <div class="project-img">💡</div>
+        <div class="project-img">
+          <span>NUEVO</span>
+        </div>
         <div class="project-info">
-          <h3>Otro Proyecto</h3>
-          <p>Espacio reservado para futuros trabajos. Ideal para landings, portafolios de clientes o tiendas.</p>
+          <h3>Otro proyecto</h3>
+          <p>Aquí puedes mostrar más trabajos. Perfecto para portafolios de clientes o páginas de servicios.</p>
           <div class="project-links">
             <a href="#">Próximamente</a>
           </div>
         </div>
       </div>
-
     </div>
   </section>
 
   <div class="contact" id="contacto">
-    <h2>¿Quieres una página web?</h2>
-    <p>Escríbeme y cuéntame tu idea. Puedo ayudarte a crear tu sitio de forma rápida y profesional.</p>
+    <h2>¿Quieres una página web profesional?</h2>
+    <p>Cuéntame tu idea y te ayudo a crear un sitio limpio, moderno y listo para atraer clientes.</p>
     
     <div class="contact-buttons">
       <a href="https://wa.me/523322612190" class="btn btn-whatsapp" target="_blank">WhatsApp</a>
@@ -377,8 +503,16 @@
   </div>
 
   <footer>
-    <p>© 2026 Fabián — Portafolio</p>
+    <p>© 2026 Fabián — Diseño y Desarrollo Web</p>
   </footer>
 
+  <script>
+    // Cerrar menú al hacer clic en un enlace (móvil)
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.querySelector('nav').classList.remove('active');
+      });
+    });
+  </script>
 </body>
 </html>
