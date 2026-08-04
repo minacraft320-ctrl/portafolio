@@ -12,14 +12,13 @@
     }
 
     :root {
-      --bg: #0b1120;
-      --bg-card: #111827;
-      --border: #1f2937;
-      --text: #e5e7eb;
-      --text-muted: #9ca3af;
-      --primary: #38bdf8;
-      --primary-hover: #0ea5e9;
-      --accent: #22d3ee;
+      --bg: #09090b;
+      --bg-card: #18181b;
+      --border: #27272a;
+      --text: #f4f4f5;
+      --text-muted: #a1a1aa;
+      --primary: #22d3ee;        /* acento cyan suave */
+      --primary-hover: #06b6d4;
     }
 
     body {
@@ -40,7 +39,7 @@
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(11, 17, 32, 0.9);
+      background: rgba(9, 9, 11, 0.92);
       backdrop-filter: blur(12px);
       z-index: 1000;
       border-bottom: 1px solid var(--border);
@@ -95,7 +94,7 @@
       justify-content: center;
       text-align: center;
       padding: 120px 24px 80px;
-      background: radial-gradient(ellipse at top, #1e293b 0%, var(--bg) 65%);
+      background: radial-gradient(ellipse at top, #18181b 0%, var(--bg) 70%);
     }
 
     .hero-content h1 {
@@ -120,7 +119,7 @@
     .btn {
       display: inline-block;
       background: var(--primary);
-      color: #0f172a;
+      color: #09090b;
       padding: 14px 32px;
       border-radius: 50px;
       font-weight: 600;
@@ -131,7 +130,7 @@
     .btn:hover {
       background: var(--primary-hover);
       transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(56, 189, 248, 0.25);
+      box-shadow: 0 10px 25px rgba(34, 211, 238, 0.2);
     }
 
     .btn-outline {
@@ -143,7 +142,7 @@
 
     .btn-outline:hover {
       background: var(--primary);
-      color: #0f172a;
+      color: #09090b;
     }
 
     /* Sections */
@@ -177,7 +176,7 @@
     }
 
     .about-image {
-      background: linear-gradient(135deg, #1e293b, #0f172a);
+      background: linear-gradient(135deg, #18181b, #09090b);
       height: 340px;
       border-radius: 20px;
       display: flex;
@@ -192,21 +191,21 @@
       content: "F";
       font-size: 7rem;
       font-weight: 800;
-      color: rgba(56, 189, 248, 0.15);
+      color: rgba(34, 211, 238, 0.12);
       position: absolute;
     }
 
     .about-image-inner {
       width: 140px;
       height: 140px;
-      background: linear-gradient(135deg, var(--primary), #0ea5e9);
+      background: linear-gradient(135deg, var(--primary), #06b6d4);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 3.2rem;
       font-weight: 700;
-      color: #0f172a;
+      color: #09090b;
       z-index: 1;
     }
 
@@ -245,18 +244,18 @@
       border-radius: 18px;
       overflow: hidden;
       border: 1px solid var(--border);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     }
 
     .project-card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
-      border-color: #334155;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      border-color: #3f3f46;
     }
 
     .project-img {
       height: 180px;
-      background: linear-gradient(135deg, #1e293b, #0f172a);
+      background: linear-gradient(135deg, #18181b, #09090b);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -278,7 +277,7 @@
     .project-info h3 {
       margin-bottom: 10px;
       font-size: 1.25rem;
-      color: #f3f4f6;
+      color: #f4f4f5;
     }
 
     .project-info p {
@@ -346,7 +345,7 @@
     footer {
       text-align: center;
       padding: 32px 24px;
-      color: #64748b;
+      color: #71717a;
       font-size: 0.9rem;
       border-top: 1px solid var(--border);
     }
@@ -359,7 +358,7 @@
         top: 100%;
         left: 0;
         width: 100%;
-        background: rgba(11, 17, 32, 0.98);
+        background: rgba(9, 9, 11, 0.98);
         flex-direction: column;
         padding: 20px 24px;
         gap: 16px;
@@ -507,7 +506,6 @@
   </footer>
 
   <script>
-    // Cerrar menú al hacer clic en un enlace (móvil)
     document.querySelectorAll('nav a').forEach(link => {
       link.addEventListener('click', () => {
         document.querySelector('nav').classList.remove('active');
