@@ -17,7 +17,7 @@
       --border: #27272a;
       --text: #f4f4f5;
       --text-muted: #a1a1aa;
-      --primary: #22d3ee;        /* acento cyan suave */
+      --primary: #22d3ee;
       --primary-hover: #06b6d4;
     }
 
@@ -232,6 +232,139 @@
       border: 1px solid var(--border);
     }
 
+    /* ========== CARRUSEL DE MODELOS ========== */
+    .models-section {
+      padding-bottom: 40px;
+    }
+
+    .carousel-wrapper {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: 20px;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .model-slide {
+      min-width: 100%;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .model-image {
+      height: 280px;
+      background: linear-gradient(135deg, #1c1c1f, #09090b);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .model-image span {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--primary);
+      opacity: 0.8;
+      letter-spacing: 2px;
+    }
+
+    .model-info {
+      padding: 32px;
+      text-align: center;
+    }
+
+    .model-info h3 {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+      color: #f4f4f5;
+    }
+
+    .model-info p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      max-width: 480px;
+      margin: 0 auto 20px;
+      line-height: 1.6;
+    }
+
+    .model-price {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    /* Flechas */
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
+      background: rgba(24, 24, 27, 0.9);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      color: var(--text);
+      font-size: 1.4rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      transition: all 0.25s ease;
+      backdrop-filter: blur(8px);
+    }
+
+    .carousel-btn:hover {
+      background: var(--primary);
+      color: #09090b;
+      border-color: var(--primary);
+    }
+
+    .carousel-btn.prev {
+      left: 16px;
+    }
+
+    .carousel-btn.next {
+      right: 16px;
+    }
+
+    .carousel-btn.hidden {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-50%) scale(0.8);
+    }
+
+    /* Indicadores (puntos) */
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #3f3f46;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .dot.active {
+      background: var(--primary);
+      transform: scale(1.2);
+    }
+
     /* Projects */
     .projects-grid {
       display: grid;
@@ -391,6 +524,24 @@
         padding: 50px 24px;
         margin: 20px 16px 80px;
       }
+
+      .model-image {
+        height: 200px;
+      }
+
+      .carousel-btn {
+        width: 42px;
+        height: 42px;
+        font-size: 1.2rem;
+      }
+
+      .carousel-btn.prev {
+        left: 10px;
+      }
+
+      .carousel-btn.next {
+        right: 10px;
+      }
     }
   </style>
 </head>
@@ -403,6 +554,7 @@
       <nav>
         <a href="#inicio">Inicio</a>
         <a href="#sobre-mi">Sobre mí</a>
+        <a href="#modelos">Modelos</a>
         <a href="#proyectos">Proyectos</a>
         <a href="#contacto">Contacto</a>
       </nav>
@@ -414,7 +566,7 @@
       <h1>Diseño y desarrollo de<br><span>páginas web profesionales</span></h1>
       <p>Creo sitios web modernos, rápidos y orientados a resultados. Ideal para negocios que quieren verse profesionales y atraer más clientes.</p>
       <div>
-        <a href="#proyectos" class="btn">Ver proyectos</a>
+        <a href="#modelos" class="btn">Ver modelos</a>
         <a href="#contacto" class="btn btn-outline">Solicitar cotización</a>
       </div>
     </div>
@@ -442,6 +594,63 @@
           <span class="skill">Impresión 3D</span>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ========== SECCIÓN MODELOS ========== -->
+  <section id="modelos" class="models-section">
+    <h2>Modelos de páginas</h2>
+    <p class="section-subtitle">Elige el tipo de sitio que mejor se adapta a tu negocio</p>
+
+    <div class="carousel-wrapper">
+      <button class="carousel-btn prev hidden" id="prevBtn">‹</button>
+      <button class="carousel-btn next" id="nextBtn">›</button>
+
+      <div class="carousel-track" id="carouselTrack">
+        
+        <!-- Modelo 1 -->
+        <div class="model-slide">
+          <div class="model-image">
+            <span>MODELO BÁSICO</span>
+          </div>
+          <div class="model-info">
+            <div class="model-price">Desde $X,XXX</div>
+            <h3>Página Básica</h3>
+            <p>Ideal para presentar tu negocio de forma clara y profesional. Incluye sección de servicios, sobre ti y contacto.</p>
+          </div>
+        </div>
+
+        <!-- Modelo 2 -->
+        <div class="model-slide">
+          <div class="model-image">
+            <span>MODELO PROFESIONAL</span>
+          </div>
+          <div class="model-info">
+            <div class="model-price">Desde $X,XXX</div>
+            <h3>Página Profesional</h3>
+            <p>Diseño más completo con secciones adicionales, animaciones suaves y mayor enfoque en conversión de clientes.</p>
+          </div>
+        </div>
+
+        <!-- Modelo 3 -->
+        <div class="model-slide">
+          <div class="model-image">
+            <span>MODELO PREMIUM</span>
+          </div>
+          <div class="model-info">
+            <div class="model-price">Desde $X,XXX</div>
+            <h3>Página Premium</h3>
+            <p>La opción más completa. Ideal para negocios que quieren destacar con un diseño a medida y funcionalidades avanzadas.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="carousel-dots" id="carouselDots">
+      <div class="dot active" data-index="0"></div>
+      <div class="dot" data-index="1"></div>
+      <div class="dot" data-index="2"></div>
     </div>
   </section>
 
@@ -506,11 +715,74 @@
   </footer>
 
   <script>
+    // Menú móvil
     document.querySelectorAll('nav a').forEach(link => {
       link.addEventListener('click', () => {
         document.querySelector('nav').classList.remove('active');
       });
     });
+
+    // ========== CARRUSEL ==========
+    const track = document.getElementById('carouselTrack');
+    const slides = document.querySelectorAll('.model-slide');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const dots = document.querySelectorAll('.dot');
+    
+    let currentIndex = 0;
+    const totalSlides = slides.length;
+
+    function updateCarousel() {
+      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+      
+      // Mostrar/ocultar flechas
+      prevBtn.classList.toggle('hidden', currentIndex === 0);
+      nextBtn.classList.toggle('hidden', currentIndex === totalSlides - 1);
+      
+      // Actualizar puntos
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentIndex);
+      });
+    }
+
+    function goToSlide(index) {
+      currentIndex = index;
+      updateCarousel();
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentIndex < totalSlides - 1) {
+        currentIndex++;
+        updateCarousel();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+        updateCarousel();
+      }
+    });
+
+    // Clic en la imagen también avanza
+    slides.forEach(slide => {
+      slide.addEventListener('click', () => {
+        if (currentIndex < totalSlides - 1) {
+          currentIndex++;
+          updateCarousel();
+        }
+      });
+    });
+
+    // Clic en los puntos
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        goToSlide(parseInt(dot.dataset.index));
+      });
+    });
+
+    // Inicializar
+    updateCarousel();
   </script>
 </body>
 </html>
