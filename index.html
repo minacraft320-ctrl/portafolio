@@ -48,19 +48,10 @@
     .nav-container {
       max-width: 1140px;
       margin: 0 auto;
-      padding: 16px 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .logo-area {
+      padding: 16px 20px;
       display: flex;
       align-items: center;
       gap: 12px;
-      flex: 1;
-      min-width: 0;
     }
 
     .logo {
@@ -69,6 +60,7 @@
       color: var(--primary);
       letter-spacing: -0.5px;
       white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .tagline {
@@ -81,6 +73,7 @@
       overflow: hidden;
       text-overflow: ellipsis;
       flex: 1;
+      text-align: center;
     }
 
     .tagline.fade {
@@ -90,6 +83,7 @@
     nav {
       display: flex;
       gap: 32px;
+      margin-left: auto;
     }
 
     nav a {
@@ -111,6 +105,7 @@
       font-size: 1.5rem;
       cursor: pointer;
       flex-shrink: 0;
+      margin-left: auto;
     }
 
     /* Hero */
@@ -580,10 +575,8 @@
 
   <header>
     <div class="nav-container">
-      <div class="logo-area">
-        <a href="#" class="logo">Fabián</a>
-        <span class="tagline" id="tagline">Páginas web profesionales</span>
-      </div>
+      <a href="#" class="logo">Fabián</a>
+      <span class="tagline" id="tagline">Páginas web profesionales</span>
       <button class="menu-toggle" onclick="document.querySelector('nav').classList.toggle('active')">☰</button>
       <nav>
         <a href="#inicio">Inicio</a>
