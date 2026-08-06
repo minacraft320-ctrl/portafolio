@@ -280,7 +280,6 @@
       border: 1px solid var(--border);
       border-radius: 20px;
       overflow: hidden;
-      cursor: pointer;
     }
 
     .model-image {
@@ -324,6 +323,19 @@
       font-weight: 700;
       color: var(--primary);
       margin-bottom: 8px;
+    }
+
+    .model-link {
+      display: inline-block;
+      margin-top: 8px;
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    .model-link:hover {
+      color: var(--primary-hover);
     }
 
     /* Flechas */
@@ -577,6 +589,7 @@
             <div class="model-price">$500 MXN</div>
             <h3>Página Básica</h3>
             <p>Ideal para presentar tu negocio de forma clara y profesional. Incluye sección de servicios, sobre ti y contacto.</p>
+            <a href="https://minacraft320-ctrl.github.io/modelo1/" target="_blank" class="model-link">Ver ejemplo →</a>
           </div>
         </div>
 
@@ -589,6 +602,7 @@
             <div class="model-price">$1,000 MXN</div>
             <h3>Página Profesional</h3>
             <p>Diseño más completo con secciones adicionales, animaciones suaves y mayor enfoque en conversión de clientes.</p>
+            <a href="https://minacraft320-ctrl.github.io/modelo2/" target="_blank" class="model-link">Ver ejemplo →</a>
           </div>
         </div>
 
@@ -601,6 +615,7 @@
             <div class="model-price">$1,500 MXN</div>
             <h3>Página Premium</h3>
             <p>La opción más completa. Ideal para negocios que quieren destacar con un diseño a medida y funcionalidades avanzadas.</p>
+            <a href="https://minacraft320-ctrl.github.io/modelo3/" target="_blank" class="model-link">Ver ejemplo →</a>
           </div>
         </div>
 
@@ -696,15 +711,6 @@
         currentIndex--;
         updateCarousel();
       }
-    });
-
-    slides.forEach(slide => {
-      slide.addEventListener('click', () => {
-        if (currentIndex < totalSlides - 1) {
-          currentIndex++;
-          updateCarousel();
-        }
-      });
     });
 
     dots.forEach(dot => {
